@@ -1,20 +1,19 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
 Prerequisites:
-    1.安装python3.6
-    2.安装protobuf,  pip3 install protobuf
-    3.去学习下protobuf,
+    1.install python3.6
+    2.install protobuf, --> pip3 install protobuf
+    3.please learn protobuf 
     4.protoc --python_out=. .\messages.proto
-    5.
+    5.protoc all *.proto files
 """
 
 import messages_pb2 as tz_messages
 import types_pb2
 import config_pb2
 import storage_pb2
-
 import struct
 
 """
