@@ -93,6 +93,8 @@ def Deserialization(msg_id, message):
         GetPublicKey_message = tz_messages.GetPublicKey()
         GetPublicKey_message.ParseFromString(message)
         print(GetPublicKey_message)
+        print('Type:',  type(GetPublicKey_message.address_n))
+        print('len:', len(GetPublicKey_message.address_n))
     elif msg_id == 12:
         print('MessageType_PublicKey: ', message)
         PublicKey_message = tz_messages.PublicKey()
@@ -108,8 +110,164 @@ def Deserialization(msg_id, message):
         Address_message = tz_messages.Address()
         Address_message.ParseFromString(message)
         print(Address_message)
+    elif msg_id == 34:
+        print('MessageType_BackupDevice: ', message)
+        BackupDevice_message = tz_messages.BackupDevice()
+        BackupDevice_message.ParseFromString(message)
+        print(BackupDevice_message)
+    elif msg_id == 2:
+        print('MessageType_Success: ', message)
+        MessageType_Success = tz_messages.Success()
+        MessageType_Success.ParseFromString(message)
+        print(MessageType_Success)
+    elif msg_id == 26:
+        print('MessageType_ButtonRequest: ', message)
+        MessageType_ButtonRequest = tz_messages.ButtonRequest()
+        MessageType_ButtonRequest.ParseFromString(message)
+        print(MessageType_ButtonRequest)
+    elif msg_id == 27:
+        print('MessageType_ButtonAck: ', message)
+        MessageType_ButtonAck = tz_messages.ButtonAck()
+        MessageType_ButtonAck.ParseFromString(message)
+        print(MessageType_ButtonAck)
+    elif msg_id == 25:
+        print('MessageType_ApplySettings: ', message)
+        MessageType_ApplySettings = tz_messages.ApplySettings()
+        MessageType_ApplySettings.ParseFromString(message)
+        print(MessageType_ApplySettings)
+    elif msg_id == 4:
+        print('MessageType_ChangePin: ', message)
+        MessageType_ChangePin = tz_messages.ChangePin()
+        MessageType_ChangePin.ParseFromString(message)
+        print(MessageType_ChangePin)
+    elif msg_id == 18:
+        print('MessageType_PinMatrixRequest: ', message)
+        MessageType_PinMatrixRequest = tz_messages.PinMatrixRequest()
+        MessageType_PinMatrixRequest.ParseFromString(message)
+        print(MessageType_PinMatrixRequest)
+    elif msg_id == 19:
+        print('MessageType_PinMatrixAck: ', message)
+        MessageType_PinMatrixAck = tz_messages.PinMatrixAck()
+        MessageType_PinMatrixAck.ParseFromString(message)
+        print(MessageType_PinMatrixAck)
+    elif msg_id == 5:
+        print('MessageType_WipeDevice: ', message)
+        MessageType_WipeDevice = tz_messages.WipeDevice()
+        MessageType_WipeDevice.ParseFromString(message)
+        print(MessageType_WipeDevice)
+    elif msg_id == 14:
+        print('MessageType_ResetDevice: ', message)
+        MessageType_ResetDevice = tz_messages.ResetDevice()
+        MessageType_ResetDevice.ParseFromString(message)
+        print(MessageType_ResetDevice)
+    elif msg_id == 35:
+        print('MessageType_EntropyRequest: ', message)
+        MessageType_EntropyRequest = tz_messages.EntropyRequest()
+        MessageType_EntropyRequest.ParseFromString(message)
+        print(MessageType_EntropyRequest)
+    elif msg_id == 36:
+        print('MessageType_EntropyAck: ', message)
+        MessageType_EntropyAck = tz_messages.EntropyAck()
+        MessageType_EntropyAck.ParseFromString(message)
+        print(MessageType_EntropyAck)
+
+    elif msg_id == 6:
+        print('MessageType_FirmwareErase: ', message)
+        MessageType_FirmwareErase = tz_messages.FirmwareErase()
+        MessageType_FirmwareErase.ParseFromString(message)
+        print(MessageType_FirmwareErase)
+    elif msg_id == 7:
+        print('MessageType_FirmwareUpload: ', message)
+        MessageType_FirmwareUpload = tz_messages.FirmwareUpload()
+        MessageType_FirmwareUpload.ParseFromString(message)
+        print(MessageType_FirmwareUpload)
+    elif msg_id == 8:
+        print('MessageType_FirmwareRequest: ', message)
+        MessageType_FirmwareRequest = tz_messages.FirmwareRequest()
+        MessageType_FirmwareRequest.ParseFromString(message)
+        print(MessageType_FirmwareRequest)
+
+    elif msg_id == 45:
+        print('MessageType_RecoveryDevice: ', message)
+        MessageType_RecoveryDevice = tz_messages.RecoveryDevice()
+        MessageType_RecoveryDevice.ParseFromString(message)
+        print(MessageType_RecoveryDevice)
+    elif msg_id == 46:
+        print('MessageType_WordRequest: ', message)
+        MessageType_WordRequest = tz_messages.WordRequest()
+        MessageType_WordRequest.ParseFromString(message)
+        print(MessageType_WordRequest)
+    elif msg_id == 47:
+        print('MessageType_WordAck: ', message)
+        MessageType_WordAck = tz_messages.WordAck()
+        MessageType_WordAck.ParseFromString(message)
+        print(MessageType_WordAck)
+
+    elif msg_id == 41:
+        print('MessageType_PassphraseRequest: ', message)
+        MessageType_PassphraseRequest = tz_messages.PassphraseRequest()
+        MessageType_PassphraseRequest.ParseFromString(message)
+        print(MessageType_PassphraseRequest)
+    elif msg_id == 42:
+        print('MessageType_PassphraseAck: ', message)
+        MessageType_PassphraseAck = tz_messages.PassphraseAck()
+        MessageType_PassphraseAck.ParseFromString(message)
+        print(MessageType_PassphraseAck)
+
+    # Ethereum
+    elif msg_id == 58:
+        print('MessageType_EthereumSignTx: ', message)
+        MessageType_EthereumSignTx = tz_messages.EthereumSignTx()
+        MessageType_EthereumSignTx.ParseFromString(message)
+        print(MessageType_EthereumSignTx)
+    elif msg_id == 59:
+        print('MessageType_EthereumTxRequest: ', message)
+        MessageType_EthereumTxRequest = tz_messages.EthereumTxRequest()
+        MessageType_EthereumTxRequest.ParseFromString(message)
+        print(MessageType_EthereumTxRequest)
     else:
         print('Unrecognized Message Id, Please modify the program.')
+
+
+def file_parse(file_name):
+    
+    try:
+        fp = open(file_name, 'r')
+        ctx = fp.readlines()
+    finally:
+        fp.close()
+
+    ##print(ctx)
+    ##print('==============================')
+    ##print(ctx[0].find('/'))
+    ##print(ctx[0][15:117])
+
+    all_string_list = []  # delete black lines
+    for val in ctx:
+        if val[15:117] != '':  # delete black line
+            all_string_list.append(val[15:117])
+##    print(all_string_list)
+
+    begin_index_list = []  # String begin is '3f 23 23'
+    index = 0
+    for val in all_string_list:
+        if val[0:2:] == '3f' and val[3:5:] == '23' and val[6:8:] == '23':
+            begin_index_list.append(index)
+        index = index + 1
+
+    messages_string_list = []
+    for val in begin_index_list:
+        temp_string = all_string_list[val] + ' ' + all_string_list[val+1]
+        link_index = 2
+        while all_string_list[val+link_index][:2:] == '3f' \
+            and all_string_list[val+link_index][3:5:] != '23' \
+            and all_string_list[val+link_index][6:8:] != '23':
+            temp_string = temp_string + ' ' + all_string_list[val+link_index][3::] + ' ' + all_string_list[val+link_index+1]
+            link_index = link_index + 2
+        messages_string_list.append(temp_string)
+##    print(messages_string_list)
+    return messages_string_list    
+
 
 def main():
 
@@ -165,16 +323,18 @@ def main():
         46 50 72 4e  43 74 62 73  77 54 67 58  39 00 00 00 \
         00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 '
 
-    buffer_test = '3f 23 23 00 28 00 00 00 67 0a 22 31 39 35 54 32 \
-        35 41 62 35 44 75 39 44 36 37 75 32 42 6d 44 76 \
-        46 64 39 50 68 4c 61 64 52 7a 72 7a 78 12 41 20 \
-        fe e2 43 ec 4f 1a f9 2a 73 09 f6 a5 43 d5 7a ee \
-        04 1e a7 69 74 57 96 53 ff 9b f3 d8 6a c3 af 34 \
-        1b 66 52 f5 a1 16 30 b8 cb f8 61 33 5b b5 95 68 \
-        1d b7 13 af 0 3a a6 94 1a 69 58 bf 8f 18 e1 96 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'
-    
-    message_info = str2int(buffer_test)
-    Deserialization(message_info[0], message_info[1])
+
+    processing_type = input('Do you want to handle?\n1.a single protobuf messages\n2.a file inlcude protobuf messages\n')
+
+    if processing_type == '1':
+        protobuf_message = input('Please input a protobuf message\n')
+        message_info = str2int(protobuf_message)
+        Deserialization(message_info[0], message_info[1])
+    else:
+        messages_list = file_parse('test.txt')
+        for message in messages_list:
+            message_info = str2int(message)
+            Deserialization(message_info[0], message_info[1])
     
 
 if __name__ == '__main__':

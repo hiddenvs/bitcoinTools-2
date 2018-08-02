@@ -20,7 +20,7 @@ def str2int(buffer='8076f1b95aa61d6c8464ae303acc62eaafbec152157a3ad00b5ae7edf085
 def main():
     
     """Decode"""
-    print('Decode: ', (base58.b58decode_check(b'195T25Ab5Du9D67u2BmDvFd9PhLadRzrzx')).hex())
+    print('Decode: ', (base58.b58decode_check(b'xprv9tyUQV64JT5qs3RSTJkXCWKMyUgoQp7F3hA1xzG6ZGu6u6Q9VMNjGr67Lctvy5P8oyaYAL9CAWrUE9i6GoNMKUga5biW6Hx4tws2six3b9c')).hex())
 
     """Encode"""
     print('Encode: ', \
